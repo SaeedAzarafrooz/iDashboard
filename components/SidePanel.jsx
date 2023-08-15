@@ -99,18 +99,19 @@ export default function SidePanel() {
         <ul className="text-gray-500">
           {menu.map((item) => {
             return (
-              <li className="text-gray-500 my-4 p-1 group hover:bg-gray-700 hover:rounded-md hover:p-1 transition-all duration-300" key={item.id}>
-                <Link className="flex items-center gap-2 hover:text-gray-400" href={"/"}>
-                  <Image width={20} height={20} src={imageHandler(item.img)} />
+              <li className="text-gray-500 my-4 p-1 rounded-md group hover:bg-gray-700 hover:rounded-md hover:p-1 transition-all duration-300" key={item.id}>
+                <Link className="flex items-center gap-2 group hover:text-gray-400" href={"/"}>
+                  {/* i think we can have hover effect on icons by colored them with state that is on mouse entering and leaving and change src of Image */}
+                <Image width={20} height={20} src={imageHandler(item.img)} />
                   <div>{item.title}</div>
                 </Link>
                 <div>
                   {item.hasSub && (
                     <ul className="pl-6">
                       {item.subs.map((subitem) => (
-                        <li className="w-full h-fit px-1 group hover:bg-gray-600 hover:rounded-md hover:px-1 transition-all duration-300">
+                        <li className="w-full h-fit px-1 rounded-md group hover:bg-gray-600 hover:rounded-md hover:px-1 transition-all duration-300">
                           <Link
-                            className="flex items-center gap-2 my-2 text-sm hover:text-gray-400"
+                            className="flex items-center gap-2 my-2 text-sm hover:text-gray-400 "
                             href={"/"}
                           >
                             <Image
@@ -131,7 +132,7 @@ export default function SidePanel() {
         </ul>
         {/* bottom section --> Logout */}
         <div>
-          <Link className="flex items-center gap-2 text-gray-500" href={"/"}>
+          <Link className="flex items-center p-1 gap-2 rounded-md text-gray-500 group  hover:rounded-md hover:bg-yellow-400 hover:text-red-500  hover:p-1 transition-all duration-300" href={"/"}>
             <Image width={30} src={LogoutIcon} />
             <div>Log out</div>
           </Link>
