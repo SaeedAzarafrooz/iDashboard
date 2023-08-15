@@ -99,19 +99,18 @@ export default function SidePanel() {
         <ul className="text-gray-500">
           {menu.map((item) => {
             return (
-              <li className="text-gray-500 my-4" key={item.id}>
-                <Link className="flex items-center gap-2" href={"/"}>
+              <li className="text-gray-500 my-4 p-1 group hover:bg-gray-700 hover:rounded-md hover:p-1 transition-all duration-300" key={item.id}>
+                <Link className="flex items-center gap-2 hover:text-gray-400" href={"/"}>
                   <Image width={20} height={20} src={imageHandler(item.img)} />
                   <div>{item.title}</div>
                 </Link>
                 <div>
                   {item.hasSub && (
                     <ul className="pl-6">
-                      {" "}
                       {item.subs.map((subitem) => (
-                        <li>
+                        <li className="w-full h-fit px-1 group hover:bg-gray-600 hover:rounded-md hover:px-1 transition-all duration-300">
                           <Link
-                            className="flex items-center gap-2 my-2 text-sm"
+                            className="flex items-center gap-2 my-2 text-sm hover:text-gray-400"
                             href={"/"}
                           >
                             <Image
