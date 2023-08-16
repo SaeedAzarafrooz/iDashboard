@@ -23,32 +23,32 @@ export default function Footer() {
           </h4>
           <ul className="text-base">
             <li>
-              <Link className=" hover:text-gray-500" href={"/"}>
+              <Link className=" hover:text-gray-300" href={"/"}>
                 Home
               </Link>
             </li>
             <li>
-              <Link className=" hover:text-gray-500" href={"/"}>
+              <Link className=" hover:text-gray-300" href={"/"}>
                 Goals
               </Link>
             </li>
             <li>
-              <Link className=" hover:text-gray-500" href={"/"}>
+              <Link className=" hover:text-gray-300" href={"/"}>
                 Tasks
               </Link>
             </li>
             <li>
-              <Link className=" hover:text-gray-500" href={"/"}>
+              <Link className=" hover:text-gray-300" href={"/"}>
                 Statistics
               </Link>
             </li>
             <li>
-              <Link className=" hover:text-gray-500" href={"/"}>
+              <Link className=" hover:text-gray-300" href={"/"}>
                 Timeboxing
               </Link>
             </li>
             <li>
-              <Link className=" hover:text-gray-500" href={"/"}>
+              <Link className=" hover:text-gray-300" href={"/"}>
                 Documents
               </Link>
             </li>
@@ -61,8 +61,9 @@ export default function Footer() {
               className="flex items-center"
               href={"https://github.com/SaeedAzarafrooz"}
             >
-             <div className="w-[34px] mx-1 p-[2px] bg-gray-400 rounded-full"><Image
-                className="bg-gray-400 rounded-full mr-2 "
+             <div className="w-[34px] mx-1 p-[2px] bg-gray-400 rounded-full group hover:bg-gray-300">
+              <Image
+                className="bg-gray-400 rounded-full mr-2 group-hover:bg-gray-300"
                 width={33}
                 src={GitHubIcon}
              /></div>
@@ -71,8 +72,8 @@ export default function Footer() {
               className="flex items-center"
               href={"https://github.com/SaeedAzarafrooz"}
             >
-              <div className="w-[34px] mx-1 p-[2px] bg-gray-400 rounded-full"><Image
-                className="bg-gray-400 rounded-full mr-2"
+              <div className="w-[34px] mx-1 p-[2px] bg-gray-400 rounded-full group hover:bg-gray-300"><Image
+                className="bg-gray-400 rounded-full mr-2 group-hover:bg-gray-300"
                 width={33}
                 src={LinkedinIcon}
               /></div>
@@ -81,8 +82,8 @@ export default function Footer() {
               className="flex items-center"
               href={"https://github.com/SaeedAzarafrooz"}
             >
-             <div className="w-[34px] mx-1 p-[2px] bg-gray-400 rounded-full"><Image
-                className="bg-gray-400 rounded-full mr-2"
+             <div className="w-[34px] mx-1 p-[2px] bg-gray-400 rounded-full group hover:bg-gray-300"><Image
+                className="bg-gray-400 rounded-full mr-2 group-hover:bg-gray-300"
                 width={33}
                 src={GmailIcon}
               /></div>
@@ -91,8 +92,8 @@ export default function Footer() {
               className="flex items-center"
               href={"https://github.com/SaeedAzarafrooz"}
             >
-              <div className="w-[34px] mx-1 p-[2px] bg-gray-400 rounded-full"><Image
-                className="bg-gray-400 rounded-full mr-2"
+              <div className="w-[34px] mx-1 p-[2px] bg-gray-400 rounded-full group hover:bg-gray-300"><Image
+                className="bg-gray-400 rounded-full mr-2 group-hover:bg-gray-300"
                 width={33}
                 src={LocationIcon}
               /></div>
