@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,6 +13,7 @@ import StatisticsIcon from "@/public/assets/images/statistics-icon.png";
 import TimeboxingIcon from "@/public/assets/images/timeboxing-icon.png";
 import TrophyIcon from "@/public/assets/images/trophy-icon.png";
 import LogoutIcon from "@/public/assets/images/logout-icon.png";
+import { useRouter } from "next/navigation";
 
 // images array
 const images = [
@@ -35,35 +37,43 @@ const menu = [
     hasSub: true,
     subs: [],
   },
-  { id: 3, title: "Tasks", img: "TasksIcon", hasSub: false,subs:[] },
-  { id: 4, title: "Apps", img: "AppsIcon", hasSub: true,subs:[{
-    id: 21,
-    title: "subMenu #1",
-    img: "AppsIcon",
-    hasSub: false,
-    subs: [],
-  },
+  { id: 3, title: "Tasks", img: "TasksIcon", hasSub: false, subs: [] },
   {
-    id: 22,
-    title: "subMenu #2",
+    id: 4,
+    title: "Applications",
     img: "AppsIcon",
-    hasSub: false,
-    subs: [],
+    hasSub: true,
+    subs: [
+      {
+        id: 21,
+        title: "subMenu #1",
+        img: "AppsIcon",
+        hasSub: false,
+        subs: [],
+      },
+      {
+        id: 22,
+        title: "subMenu #2",
+        img: "AppsIcon",
+        hasSub: false,
+        subs: [],
+      },
+      {
+        id: 23,
+        title: "subMenu #3",
+        img: "AppsIcon",
+        hasSub: false,
+        subs: [],
+      },
+      {
+        id: 24,
+        title: "subMenu #4",
+        img: "AppsIcon",
+        hasSub: false,
+        subs: [],
+      },
+    ],
   },
-  {
-    id: 23,
-    title: "subMenu #3",
-    img: "AppsIcon",
-    hasSub: false,
-    subs: [],
-  },
-  {
-    id: 24,
-    title: "subMenu #4",
-    img: "AppsIcon",
-    hasSub: false,
-    subs: [],
-  },] },
   { id: 5, title: "Statistics", img: "StatisticsIcon", hasSub: false },
   { id: 6, title: "Timeboxing", img: "TimeboxingIcon", hasSub: false },
   { id: 7, title: "Documents", img: "DocumentsIcon", hasSub: false },
@@ -85,6 +95,8 @@ const imageHandler = (image) => {
 };
 
 export default function SidePanel() {
+  const router = useRouter();
+  console.log(router.pathname, "router.pathname");
   return (
     // upper section --> logo & name
     <div className="w-56 flex flex-col justify-start items-center p-2 bg-gray-800">
@@ -99,10 +111,25 @@ export default function SidePanel() {
         <ul className="text-gray-500">
           {menu.map((item) => {
             return (
-              <li className="text-gray-500 my-4 p-1 rounded-md group hover:bg-gray-700 hover:rounded-md hover:p-1 transition-all duration-300" key={item.id}>
-                <Link className="flex items-center gap-2 group hover:text-gray-400" href={"/"}>
+              <li
+                className="my-4 p-1 rounded-md group hover:bg-gray-700 hover:rounded-md hover:p-1 transition-all duration-300"
+                key={item.id}
+              >
+                {/* try to use router and detect the page https://larainfo.com/blogs/nextjs-active-navlink-with-tailwind-css-example */}
+                <Link
+                  className={`flex items-center gap-2 group rounded-md group-hover:text-gray-400 ${
+                    router.pathname === item.title
+                      ? "border-b-2 border-blue-600"
+                      : "text-gray-500"
+                  }`}
+                  href={`/${
+                    item.title.toLowerCase() == "home"
+                      ? "/"
+                      : item.title.toLowerCase()
+                  }`}
+                >
                   {/* i think we can have hover effect on icons by colored them with state that is on mouse entering and leaving and change src of Image */}
-                <Image width={20} height={20} src={imageHandler(item.img)} />
+                  <Image width={20} height={20} src={imageHandler(item.img)} />
                   <div>{item.title}</div>
                 </Link>
                 <div>
@@ -111,7 +138,7 @@ export default function SidePanel() {
                       {item.subs.map((subitem) => (
                         <li className="w-full h-fit px-1 rounded-md group hover:bg-gray-600 hover:rounded-md hover:px-1 transition-all duration-300">
                           <Link
-                            className="flex items-center gap-2 my-2 text-sm hover:text-gray-400 "
+                            className="flex items-center gap-2 my-2 text-sm group-hover:text-gray-400 "
                             href={"/"}
                           >
                             <Image
@@ -132,7 +159,10 @@ export default function SidePanel() {
         </ul>
         {/* bottom section --> Logout */}
         <div>
-          <Link className="flex items-center p-1 gap-2 rounded-md text-gray-500 group  hover:rounded-md hover:bg-yellow-400 hover:text-red-500  hover:p-1 transition-all duration-300" href={"/"}>
+          <Link
+            className="flex items-center p-1 gap-2 rounded-md text-gray-500 group  hover:rounded-md hover:bg-yellow-400 hover:text-red-500  hover:p-1 transition-all duration-300"
+            href={"/"}
+          >
             <Image width={30} src={LogoutIcon} />
             <div>Log out</div>
           </Link>
