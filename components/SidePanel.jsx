@@ -96,7 +96,6 @@ const imageHandler = (image) => {
 
 export default function SidePanel() {
   const router = useRouter();
-  console.log(router.pathname, "router.pathname");
   return (
     // upper section --> logo & name
     <div className="w-56 flex flex-col justify-start items-center p-2 bg-gray-800">
